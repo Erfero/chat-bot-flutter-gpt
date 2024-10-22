@@ -3,8 +3,8 @@ import 'package:flutter/material.dart';
 class HomePage extends StatelessWidget {
   HomePage({super.key});
 
-  TextEditingController loginController = TextEditingController();
-  TextEditingController passwordController = TextEditingController();
+  final TextEditingController loginController = TextEditingController();
+  final TextEditingController passwordController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -21,22 +21,22 @@ class HomePage extends StatelessWidget {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Image(image: AssetImage("images/logo_enset.png")),
-                SizedBox(
+                const Image(image: AssetImage("images/logo_enset.png")),
+                const SizedBox(
                   height: 40,
                 ),
                 TextFormField(
                   controller: loginController,
                   decoration: InputDecoration(
                     //icon: Icon(Icons.lock),
-                    suffixIcon: Icon(Icons.lock),
+                    suffixIcon: const Icon(Icons.lock),
                     border: OutlineInputBorder(
                         borderSide: BorderSide(
                             width: 1, color: Theme.of(context).primaryColor),
                         borderRadius: BorderRadius.circular(10)),
                   ),
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 20,
                 ),
                 TextFormField(
@@ -44,17 +44,17 @@ class HomePage extends StatelessWidget {
                   obscureText: true,
                   decoration: InputDecoration(
                     //icon: Icon(Icons.lock),
-                    suffixIcon: Icon(Icons.visibility),
+                    suffixIcon: const Icon(Icons.visibility),
                     border: OutlineInputBorder(
                         borderSide: BorderSide(
                             width: 1, color: Theme.of(context).primaryColor),
                         borderRadius: BorderRadius.circular(10)),
                   ),
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 10,
                 ),
-                Container(
+                SizedBox(
                   width: double.infinity,
                   child: ElevatedButton(
                     onPressed: () {
@@ -65,6 +65,8 @@ class HomePage extends StatelessWidget {
                         Navigator.pushNamed(context, "/chat");
                       }
                     },
+                    style: ElevatedButton.styleFrom(
+                        backgroundColor: Theme.of(context).primaryColor),
                     child: Text(
                       "Log In",
                       style: TextStyle(
@@ -72,8 +74,6 @@ class HomePage extends StatelessWidget {
                         color: Theme.of(context).indicatorColor,
                       ),
                     ),
-                    style: ElevatedButton.styleFrom(
-                        backgroundColor: Theme.of(context).primaryColor),
                   ),
                 )
               ],

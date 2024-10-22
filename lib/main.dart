@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'home.page.dart';
 
 void main() {
-  runApp(MyApp());
+  runApp(const MyApp());
 }
 
 class MyApp extends StatelessWidget {
@@ -18,7 +18,7 @@ class MyApp extends StatelessWidget {
         indicatorColor: Colors.white,
       ),
       routes: {
-        "/chat": (context) => ChatBotPage(),
+        "/chat": (context) => const ChatBotPage(),
       },
       home: HomePage(),
     );

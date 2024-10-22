@@ -1,11 +1,11 @@
 import 'dart:convert';
-import 'dart:io';
+// import 'dart:io';
 
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 
 class ChatBotPage extends StatefulWidget {
-  ChatBotPage({super.key});
+  const ChatBotPage({super.key});
 
   @override
   State<ChatBotPage> createState() => _ChatBotPageState();
@@ -43,8 +43,8 @@ class _ChatBotPageState extends State<ChatBotPage> {
                   return Column(
                     children: [
                       ListTile(
-                        trailing: isUser ? Icon(Icons.person) : null,
-                        leading: !isUser ? Icon(Icons.support_agent) : null,
+                        trailing: isUser ? const Icon(Icons.person) : null,
+                        leading: !isUser ? const Icon(Icons.support_agent) : null,
                         title: Row(
                           children: [
                             SizedBox(
@@ -52,15 +52,15 @@ class _ChatBotPageState extends State<ChatBotPage> {
                             ),
                             Expanded(
                               child: Container(
+                                color: isUser
+                                    ? const Color.fromARGB(100, 0, 200, 0)
+                                    : Colors.white,
+                                padding: const EdgeInsets.all(10),
                                 child: Text(
                                   messages[index]['message'],
                                   style:
                                       Theme.of(context).textTheme.headlineSmall,
                                 ),
-                                color: isUser
-                                    ? Color.fromARGB(100, 0, 200, 0)
-                                    : Colors.white,
-                                padding: EdgeInsets.all(10),
                               ),
                             ),
                             SizedBox(
@@ -88,7 +88,7 @@ class _ChatBotPageState extends State<ChatBotPage> {
                     controller: queryController,
                     decoration: InputDecoration(
                       //icon: Icon(Icons.lock),
-                      suffixIcon: Icon(Icons.visibility),
+                      suffixIcon: const Icon(Icons.visibility),
                       border: OutlineInputBorder(
                           borderSide: BorderSide(
                               width: 1, color: Theme.of(context).primaryColor),
@@ -128,11 +128,11 @@ class _ChatBotPageState extends State<ChatBotPage> {
                             scrollController.position.maxScrollExtent + 200);
                       });
                     }, onError: (err) {
-                      print("+++++++++++  ERROR +++++++++++++");
-                      print(err);
+                      // print("+++++++++++  ERROR +++++++++++++");
+                      // print(err);
                     });
                   },
-                  icon: Icon(
+                  icon: const Icon(
                     Icons.send,
                   ),
                 )
